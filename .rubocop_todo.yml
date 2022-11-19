@@ -29,6 +29,9 @@ Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
     - 'config/environments/production.rb'
 
+Metrics/AbcSize:
+  Max: 30
+
 # Offense count: 1
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods.
 Metrics/CyclomaticComplexity:
@@ -38,7 +41,7 @@ Metrics/CyclomaticComplexity:
 # Offense count: 1
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, AllowedMethods, AllowedPatterns, IgnoredMethods.
 Metrics/MethodLength:
-  Max: 13
+  Max: 30
 
 # Offense count: 1
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods.
@@ -57,11 +60,7 @@ Style/ClassAndModuleChildren:
 # Offense count: 2
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/helpers/application_helper.rb'
-    - 'config/application.rb'
+  Enabled: false
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -88,6 +87,10 @@ Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
 
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/PerlBackrefs:
@@ -108,6 +111,10 @@ Style/RedundantFetchBlock:
 Style/SpecialGlobalVars:
   Exclude:
     - 'bin/bundle'
+
+Style/StringLiterals:
+  Exclude:
+    - 'db/schema.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
