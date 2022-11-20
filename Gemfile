@@ -7,6 +7,7 @@ gem 'bootsnap', require: false
 gem 'devise', '~> 4.8'
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'net-http'
 gem 'pg'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
@@ -21,6 +22,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'rubocop', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false

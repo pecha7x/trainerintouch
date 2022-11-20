@@ -68,6 +68,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     ast (2.4.2)
     bcrypt (3.1.18)
     bcrypt (3.1.18-java)
@@ -125,6 +128,8 @@ GEM
     minitest (5.16.3)
     msgpack (1.6.0)
     msgpack (1.6.0-java)
+    net-http (0.3.0)
+      uri
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -243,6 +248,7 @@ GEM
     tzinfo-data (1.2022.6)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.3.0)
+    uri (0.11.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -272,12 +278,14 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  annotate
   bootsnap
   capybara
   debug
   devise (~> 4.8)
   importmap-rails
   jbuilder
+  net-http
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
