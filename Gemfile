@@ -5,6 +5,7 @@ ruby '2.7.1'
 
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.8'
+gem 'discard', '~> 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'net-http'
