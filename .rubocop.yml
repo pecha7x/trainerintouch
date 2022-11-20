@@ -3,7 +3,9 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
-inherit_from: .rubocop_todo.yml
+inherit_from:
+  - .rubocop_base.yml
+  - .rubocop_rspec.yml
 
 Rails:
   Enabled: true
@@ -15,6 +17,8 @@ AllCops:
   NewCops: enable
   Exclude:
     - bin/**/*
+    - config/environments/*
+    - config/puma.rb
     - db/migrate/*
     - db/*
     - vendor/**/*
