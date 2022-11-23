@@ -30,6 +30,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'letter_opener'
   gem 'rubocop', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
