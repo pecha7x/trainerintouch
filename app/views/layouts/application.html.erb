@@ -19,7 +19,12 @@
       <p class='alert alert-danger'><%= alert %></p>
     <% end %>
     <% if current_user %>
-      <%= link_to 'Log Out', destroy_user_session_path, 'data-turbo-method': :delete %>
+      <p>
+        Hi, <%= current_user.first_name %>
+      </p>
+      <%= button_to 'Log Out', destroy_user_session_path, method: :delete, data: { turbo: 'false' }, class: 'font-medium text-indigo-600 hover:text-indigo-500' %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path, class: 'font-medium text-indigo-600 hover:text-indigo-500' %>
     <% end %>
     <main><%= yield %></main>
   </body>
