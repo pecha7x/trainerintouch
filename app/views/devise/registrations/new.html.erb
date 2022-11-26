@@ -1,39 +1,60 @@
-<h2>Sign up</h2>
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img
+        class="mx-auto h-12 w-auto"
+        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+        alt="Workflow"
+        />
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Sign up your account
+      </h2>
+      <%- if devise_mapping.registerable? && controller_name != 'sessions' %>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          Or <%= link_to "sign in", new_session_path(resource_name), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+        </p>
+      <% end %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'devise-form', data: { turbo: false} }) do |f| %>
+      <div class="mt-8 space-y-3">
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+        <div class="rounded-md shadow-sm space-y-0.5">
+          <div>
+            <%= f.label :first_name, class: "sr-only", for: "first-name" %>
+            <%= f.text_field :first_name, id: "first-name", autofocus: true, placeholder: "First Name", class: "text-input rounded-t-md" %>
+          </div>
+
+          <div>
+            <%= f.label :last_name, class: "sr-only", for: "last-name" %>
+            <%= f.text_field :last_name, id: "last-name", placeholder: "Last Name", class: "text-input" %>
+          </div>
+
+          <div>
+            <%= f.label :email, class: "sr-only", for: "email-address" %>
+            <%= f.email_field :email, id: "email-address", autocomplete: "email", placeholder: "Email address", class: "text-input" %>
+          </div>
+
+          <div>
+            <%= f.label :password, class: "sr-only", for: "password" %>
+            <%= f.password_field :password, id: "password", autocomplete: "new-password", placeholder: "Password", class: "text-input" %>
+          </div>
+
+          <div>
+            <%= f.label :password_confirmation, class: "sr-only", for: "password-confirmation" %>
+            <%= f.password_field :password_confirmation, id: "password-confirmation", autocomplete: "new-password", placeholder: "Password Confirmation", class: "text-input rounded-b-md" %>
+          </div>
+
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "button-container submit-button"%>
+        </div>
+
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

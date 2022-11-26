@@ -19,15 +19,14 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'devise-form', data: { turbo: false} }) do |f| %>
       <div class="mt-8 space-y-6">
         <input type="hidden" name="remember" value="true" />
-        <div class="rounded-md shadow-sm -space-y-px">
+        <div class="rounded-md shadow-sm space-y-0.5">
           <div>
             <%= f.label :email, class: "sr-only", for: "email-address" %>
             <%= f.email_field :email, id: "email-address", autocomplete: "email", autofocus: true, placeholder: "Email address", class: "text-input rounded-t-md" %>
           </div>
           <div>
-            <%= f.label :password, for: "password", class: "sr-only" %> <%=
-                f.password_field :password, id: "password", autocomplete: "current-password", placeholder: "Password", class: "text-input rounded-b-md"
-            %>
+            <%= f.label :password, class: "sr-only", for: "password" %>
+            <%= f.password_field :password, id: "password", autocomplete: "current-password", placeholder: "Password", class: "text-input rounded-b-md" %>
           </div>
         </div>
         <% if devise_mapping.rememberable? %>
@@ -38,21 +37,13 @@
             </div>
             <div class="text-sm">
               <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                <%= link_to "Forgot your password?", new_password_path(resource_name),
-                    class: "font-medium text-indigo-600 hover:text-indigo-500" 
-                %>
+                <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
               <% end %>
             </div>
           </div>
         <% end %>
         <div class="actions">
-          <%= f.submit "Log in", class: "actions relative w-full flex
-              justify-center py-2 px-4 border border-transparent text-sm font-medium
-              rounded-md text-white bg-indigo-600 
-              cursor-pointer hover:bg-indigo-700
-              focus:outline-none focus:ring-2 focus:ring-offset-2
-              focus:ring-indigo-500"
-          %>
+          <%= f.submit "Log in", class: "button-container submit-button"%>
         </div>
       </div>
     <% end %>
