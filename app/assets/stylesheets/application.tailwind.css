@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+// TODO: move devise styles to a separate file
 .devise-form .text-input {
     @apply 
       appearance-none relative block w-full
@@ -24,4 +26,12 @@
 
 .devise-form .submit-button {
   @apply bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500;
+}
+
+/* .devise-form .text-link {
+  @apply font-medium text-indigo-600 hover:text-indigo-500;
+} */
+
+.text-link {
+  @apply font-medium text-indigo-600 hover:text-indigo-500;
 }
