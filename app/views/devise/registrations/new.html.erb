@@ -1,20 +1,6 @@
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
-    <div>
-      <img
-        class="mx-auto h-12 w-auto"
-        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-        alt="Workflow"
-        />
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        Sign up your account
-      </h2>
-      <%- if devise_mapping.registerable? && controller_name != 'sessions' %>
-        <p class="mt-2 text-center text-sm text-gray-600">
-          Or <%= link_to "sign in", new_session_path(resource_name), class: "text-link" %>
-        </p>
-      <% end %>
-    </div>
+    <%= render "devise/shared/form_header", title: "Sign up your account" %>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'devise-form', data: { turbo: false} }) do |f| %>
       <div class="mt-8 space-y-3">
