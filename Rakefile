@@ -4,3 +4,8 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+# disable default tailwindcss tasks
+# see overwritten bahavour at lib/tasks/tailwindcss_build.rake
+Rake::Task['tailwindcss:build'].clear
+Rake::Task['tailwindcss:watch'].clear

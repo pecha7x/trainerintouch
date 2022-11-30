@@ -1,5 +1,2 @@
 web: bin/rails server -p 3000
-
-# TODO: change tailwindcss gem behaviour to use this with different tailwind input points
-# css: bin/rails tailwindcss:watch
-# bundle exec tailwindcss -i app/assets/stylesheets/devise/tailwind.css -o app/assets/builds/tailwind-devise.css --config config/tailwind/devise.config.js -m
+css: bin/rails otailwindcss:watch
