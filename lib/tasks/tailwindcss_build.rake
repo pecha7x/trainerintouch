@@ -24,11 +24,7 @@ namespace :otailwindcss do
       wait_threads.push(Thread.new { system(*command) })
     end
 
-    #gem 'thwait'
-    #ThreadsWait.all_waits(*wait_threads)
-
-    # sleep 100000
-    # command.each { |c| system(*c) }
+    ThreadsWait.all_waits(*wait_threads)
   end
 end
 
