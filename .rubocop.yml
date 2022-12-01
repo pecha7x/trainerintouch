@@ -18,6 +18,7 @@ AllCops:
   Exclude:
     - bin/**/*
     - config/environments/*
+    - config/importmap.rb
     - config/puma.rb
     - db/migrate/*
     - db/*

@@ -1,1 +1,9 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import React from 'react';
+import htm from 'htm';
+import { createRoot } from 'react-dom/client';
+import App from './components/App';
+
+const html = htm.bind(React.createElement);
+
+const root = createRoot(document.getElementById('root'));
+root.render(html`<${App}/>`);
