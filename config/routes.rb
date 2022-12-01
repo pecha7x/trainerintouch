@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'application#index'
-  get 'app' => 'frontend#index'
+  get 'dashboard' => 'dashboard#index'
 end
