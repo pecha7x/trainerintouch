@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "dashboard-tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "dashboard", "data-turbo-track": "reload" %>
+    <script>window.process = { env: { NODE_ENV: "#{Rails.env}" } }</script>
     <%= javascript_importmap_tags %>
   </head>
 

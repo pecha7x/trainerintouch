@@ -1,13 +1,18 @@
 import { html } from 'htm/react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import TestComponent from './TestComponent';
 
-function App() {
+const App = () => {
   return html`
     <main>
-      <h1 className='font-medium text-indigo-600 hover:text-indigo-500'>Rails Todo Playground</h1>
-      <div className='container'>
-        Hello There!
-      </div>
-    </main>`;
+      <${BrowserRouter}>
+        <h1>Hello There!</h1>
+        <${Routes}>
+          <${Route} path="/" element=${TestComponent}/>
+        <//>
+      <//>
+    </main>
+  `;  
 }
 
 export default App;
