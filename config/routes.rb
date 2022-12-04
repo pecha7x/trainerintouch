@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   root 'application#index'
   get 'dashboard' => 'dashboard#index'
+
+  get '*path', to: 'dashboard#index', constraints: lambda { |request|
+    !request.xhr? && request.format.html?
+  }
 end

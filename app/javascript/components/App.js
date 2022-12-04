@@ -1,17 +1,16 @@
 import { html } from 'htm/react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainComponent from './MainComponent';
 import TestComponent from './TestComponent';
 
 const App = () => {
   return html`
-    <main>
-      <${BrowserRouter}>
-        <h1>Hello There!</h1>
-        <${Routes}>
-          <${Route} path="/" element=${TestComponent}/>
-        <//>
+    <${BrowserRouter} basename="/dashboard">
+      <${Routes}>
+        <${Route} path="/" element=${html`<${MainComponent} />`}/>
+        <${Route} path="/test" element=${html`<${TestComponent} />`}/>
       <//>
-    </main>
+    <//>
   `;  
 }
 
