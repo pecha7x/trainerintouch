@@ -1,7 +1,7 @@
 import React from 'react';
 import { html } from 'htm/react';
 import { Link } from 'react-router-dom';
-import { withRouter } from '../withRouter';
+import { withRouter } from './withRouter';
 
 class TemplateClassComponent extends React.Component {
   constructor() {

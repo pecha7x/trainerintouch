@@ -1,11 +1,9 @@
 import { html } from 'htm/react';
 import { Link } from 'react-router-dom';
-import { withRouter } from '../withRouter';
+import { withRouter } from './withRouter';
 
 const TemplateFunctionComponent = (props) => {
-  const navigateToClassComponent = () => {
-    props.navigate('/test_class_component');
-  }
+  const navigateToClassComponent = () => props.navigate('/test_class_component');
 
   return html`
     <h1>Template of Function Component</h1>
