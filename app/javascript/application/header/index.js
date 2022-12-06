@@ -14,12 +14,16 @@ const Header = () => {
 
   const navToggle = () => {
     if (mobileMenuButtonClass) {
-      setMobileMenuButtonClass('')
-      setMobileMenuDisplayClass('hidden')
+      closeMobileMenu()
     } else {
       setMobileMenuButtonClass('open')
       setMobileMenuDisplayClass('flext')
     }
+  }
+
+  const closeMobileMenu = () => {
+    setMobileMenuButtonClass('')
+    setMobileMenuDisplayClass('hidden')
   }
 
   return html`
@@ -40,7 +44,11 @@ const Header = () => {
           <span className="hamburger-bottom"/>
         </button>
       </div>
-      <${mobileMenu} displayClass=${mobileMenuDisplayClass}/>
+      <${mobileMenu}
+        displayClass=${mobileMenuDisplayClass}
+        logout=${logout}
+        close=${closeMobileMenu}
+      />
     </nav>
   `;
 };
