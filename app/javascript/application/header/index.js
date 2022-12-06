@@ -1,11 +1,28 @@
 import { html } from 'htm/react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import navList from './NavList';
 import mobileMenu from './MobileMenu';
 
 const Header = () => {
   const [mobileMenuButtonClass, setMobileMenuButtonClass] = useState(null);
   const [mobileMenuDisplayClass, setMobileMenuDisplayClass] = useState('hidden');
+  const ref = useRef();
+
+  useEffect(() => {
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      closeMobileMenu();
+    };
+    document.body.addEventListener('click', onBodyClick, { capture: true });
+
+    return () => {
+      document.body.removeEventListener('click', onBodyClick, {
+        capture: true,
+      });
+    };
+  }, []);
 
   const logout = (e) => {
     e.preventDefault()
@@ -17,7 +34,7 @@ const Header = () => {
       closeMobileMenu()
     } else {
       setMobileMenuButtonClass('open')
-      setMobileMenuDisplayClass('flext')
+      setMobileMenuDisplayClass('flex')
     }
   }
 
@@ -38,7 +55,7 @@ const Header = () => {
         <div className="hidden items-center space-x-6 font-bold text-grayishViolet lg:flex">
           <a href="#" onClick=${(e) => logout(e)} className="hover:text-veryDarkViolet">Logout</div>
         </div>
-        <button onClick=${(e) => navToggle(e)} className=${mobileMenuButtonClass+" block hamburger lg:hidden focus:outline-none"} type="button">
+        <button ref=${ref} onClick=${(e) => navToggle(e)} className=${mobileMenuButtonClass+" block hamburger lg:hidden focus:outline-none"} type="button">
           <span className="hamburger-top"/>
           <span className="hamburger-middle"/>
           <span className="hamburger-bottom"/>
