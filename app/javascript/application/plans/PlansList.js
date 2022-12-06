@@ -1,9 +1,9 @@
 import { html } from 'htm/react';
 
-const PlansList = () => {
+function PlansList() {
   return html`
-    <h1>Plans List</h1>
+    <h1>PlansList</h1>
   `;
-};
+}
 
 export default PlansList;

@@ -8,7 +8,7 @@ import Marketing from './marketing/index';
 
 import TemplateClassComponent from './TemplateClassComponent';
 
-const App = () => {
+function App() {
   return html`
     <${BrowserRouter} basename="/dashboard">
       <${Header}/>

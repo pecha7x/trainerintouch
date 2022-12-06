@@ -1,9 +1,9 @@
 import { html } from 'htm/react';
 
-const PeopleList = () => {
+function PeopleList() {
   return html`
-    <h1>People List</h1>
+    <h1>PeopleList</h1>
   `;
-};
+}
 
 export default PeopleList;

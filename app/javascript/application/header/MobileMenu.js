@@ -1,7 +1,7 @@
 import { html } from 'htm/react';
 import navList from './NavList';
 
-const MobileMenu = ({displayClass, logout, close}) => {
+function MobileMenu({displayClass, logout, close}) {
   return html`
     <div className="${displayClass} absolute p-6 rounded-lg bg-darkViolet left-6 right-6 top-20 z-100">
       <div onClick=${() => close()} className="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm">

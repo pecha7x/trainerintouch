@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import navList from './NavList';
 import mobileMenu from './MobileMenu';
 
-const Header = () => {
+function Header() {
   const [mobileMenuButtonClass, setMobileMenuButtonClass] = useState(null);
   const [mobileMenuDisplayClass, setMobileMenuDisplayClass] = useState('hidden');
   const ref = useRef();

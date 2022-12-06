@@ -1,9 +1,9 @@
 import { html } from 'htm/react';
 
-const Marketing = () => {
+function Marketing() {
   return html`
     <h1>Marketing</h1>
   `;
-};
+}
 
 export default Marketing;
