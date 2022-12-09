@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   root 'application#index'
   get 'dashboard' => 'dashboard#index'
 
-  get '*path', to: 'dashboard#index', constraints: lambda { |request|
+  get 'dashboard/*path', to: 'dashboard#index', constraints: lambda { |request|
     !request.xhr? && request.format.html?
   }
+
+  namespace :api do
+    namespace :v1 do
+      resources :people
+    end
+  end
 end
