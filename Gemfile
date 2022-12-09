@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'blueprinter'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.8'
 gem 'discard', '~> 1.2'

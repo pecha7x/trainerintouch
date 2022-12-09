@@ -1,6 +1,6 @@
 import { html } from 'htm/react';
 import { useFetchPeopleQuery, useAddPersonMutation } from '../../store/index';
-// import PeopleListItem from './PeopleListItem';
+import PeopleListItem from './PeopleListItem';
 
 function PeopleList({user=null}) {
   const { data, error, isFetching } = useFetchPeopleQuery(user);
@@ -18,8 +18,7 @@ function PeopleList({user=null}) {
     content = html `<div>Error loading people.</div>`;
   } else {
     content = data.map((person) => {
-      // return <PeopleListItem key={person.id} person={person} />;
-      return html `<div key={person.id}>${person.name}</div>`;
+      return html`<${PeopleListItem} key=${person.id} person=${person}/>`;
     });
   }
 

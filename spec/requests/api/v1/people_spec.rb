@@ -11,11 +11,11 @@ RSpec.describe 'Api::V1::People' do
     end
 
     it 'returns properly count of people' do
-      expect(json.count).to eq 3
+      expect(json['payload'].count).to eq 3
     end
 
     it 'returns properly list of people' do
-      expect(json.pluck('id')).to match_array(people.map(&:id))
+      expect(json['payload'].pluck('id')).to match_array(people.map(&:id))
     end
   end
 end

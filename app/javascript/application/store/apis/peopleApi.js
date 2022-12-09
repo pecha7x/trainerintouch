@@ -53,6 +53,9 @@ const PeopleApi = createApi({
             method: 'GET',
           };
         },
+        transformResponse: (response, _meta, _arg) => {
+          return response.payload;
+        }
       }),
     };
   },
