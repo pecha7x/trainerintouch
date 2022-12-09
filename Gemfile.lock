@@ -75,7 +75,7 @@ GEM
     backport (1.2.0)
     bcrypt (3.1.18)
     bcrypt (3.1.18-java)
-    benchmark (0.2.0)
+    benchmark (0.2.1)
     bindex (0.8.1)
     blueprinter (0.25.3)
     bootsnap (1.13.0)
@@ -393,7 +393,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.1.4
