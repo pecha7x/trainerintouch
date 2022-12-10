@@ -1,13 +1,14 @@
 import { html } from 'htm/react';
+import { Link } from 'react-router-dom';
 import { useFetchPeopleQuery, useAddPersonMutation } from '../../store/index';
 import PeopleListItem from './PeopleListItem';
 
 function PeopleList({user=null}) {
   const { data, error, isFetching } = useFetchPeopleQuery(user);
-  const [addPerson, results] = useAddPersonMutation();
+  // const [addPerson, results] = useAddPersonMutation();
 
   const handleAddPerson = () => {
-    addPerson(user);
+    // addPerson(user);
   };
 
   let content;
@@ -26,9 +27,7 @@ function PeopleList({user=null}) {
     <div>
       <div className="m-2 flex flex-row items-center justify-between">
         <h3 className="text-lg font-bold">People for ${user?.name}</h3>
-        <Button loading=${results.isLoading} onClick=${handleAddPerson}>
-          + Add Person
-        </Button>
+        <${Link} to="/people/new">+ Add Person<//>
       </div>
       <div>${content}</div>
     </div>

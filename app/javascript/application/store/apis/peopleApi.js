@@ -24,14 +24,11 @@ const PeopleApi = createApi({
         // invalidatesTags: (result, error, user) => {
         //   return [{ type: 'People', id: user.id }];
         // },
-        query: (user) => {
+        query: (attributes) => {
           return {
             url: '/',
             method: 'POST',
-            body: {
-              userId: user.id,
-              name: 'Dummy Name',
-            },
+            body: attributes,
           };
         },
       }),

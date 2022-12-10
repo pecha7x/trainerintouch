@@ -7,7 +7,7 @@ module Api
       end
 
       def create
-        resource = resource_class.new(resource_params)
+        resource = resource_class.new(permitted_params)
         if resource.save
           success_response(PersonSerializer.render_as_hash(resource, view: :show))
         else
@@ -21,8 +21,8 @@ module Api
         Person
       end
 
-      def resource_params
-        params.permit(:name, :phone, :email, :gender, :dob)
+      def permitted_params
+        params.require(:person).permit(:name, :phone, :email, :gender, :dob)
       end
     end
   end

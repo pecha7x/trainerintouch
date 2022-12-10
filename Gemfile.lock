@@ -122,6 +122,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.5.11)
+    io-console (0.5.11-java)
     irb (1.4.3)
       reline (>= 0.3.0)
     jaro_winkler (1.5.4)
@@ -167,12 +168,6 @@ GEM
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.9-java)
-      racc (~> 1.4)
-    nokogiri (1.13.9-x64-mingw32)
-      racc (~> 1.4)
-    nokogiri (1.13.9-x86-mingw32)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     paper_trail (13.0.0)
       activerecord (>= 5.2)
@@ -181,8 +176,6 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     pg (1.4.5)
-    pg (1.4.5-x64-mingw32)
-    pg (1.4.5-x86-mingw32)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -310,6 +303,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-x64-mingw32)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.21-x86_64-darwin)
+      railties (>= 6.0.0)
     thor (1.2.1)
     thwait (0.2.0)
       e2mmap
@@ -355,6 +350,7 @@ PLATFORMS
   x64-mingw32
   x86-mingw32
   x86-mswin32
+  x86_64-darwin
 
 DEPENDENCIES
   annotate

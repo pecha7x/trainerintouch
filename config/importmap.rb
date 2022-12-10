@@ -41,3 +41,6 @@ pin "use-sync-external-store/shim", to: "https://ga.jspm.io/npm:use-sync-externa
 pin "use-sync-external-store/shim/with-selector", to: "https://ga.jspm.io/npm:use-sync-external-store@1.2.0/shim/with-selector.js"
 # axios
 pin "axios" # @1.2.1
+# forms
+pin "react-final-form", to: "https://ga.jspm.io/npm:react-final-form@6.5.9/dist/react-final-form.es.js"
+pin "final-form", to: "https://ga.jspm.io/npm:final-form@4.20.7/dist/final-form.es.js"
