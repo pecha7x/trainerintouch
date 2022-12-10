@@ -20,7 +20,7 @@ RSpec.describe 'Api::V1::People' do
   end
 
   describe 'POST /create' do
-    let(:params) do
+    let(:person_attributes) do
       {
         name: 'John Smith',
         phone: '+1(223)235-12-21',
@@ -30,7 +30,7 @@ RSpec.describe 'Api::V1::People' do
       }
     end
 
-    before { post api_v1_people_path, params: params }
+    before { post api_v1_people_path, params: { person: person_attributes } }
 
     it 'executes success' do
       expect(response).to have_http_status(:ok)
