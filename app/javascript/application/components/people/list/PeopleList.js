@@ -1,20 +1,15 @@
 import { html } from 'htm/react';
 import { Link } from 'react-router-dom';
-import { useFetchPeopleQuery, useAddPersonMutation } from '../../store/index';
-import PeopleListItem from './PeopleListItem';
+import { useFetchPeopleQuery } from '../../../store/index';
+import Skeleton from '../../Skeleton';
+import PeopleListItem from './PeopleItem';
 
 function PeopleList({user=null}) {
   const { data, error, isFetching } = useFetchPeopleQuery(user);
-  // const [addPerson, results] = useAddPersonMutation();
-
-  const handleAddPerson = () => {
-    // addPerson(user);
-  };
 
   let content;
   if (isFetching) {
-    // content = <Skeleton className="h-10 w-full" times={3} />;
-    content = '';
+    content = html `<${Skeleton} className='h-10 w-full' times=${5} />`;
   } else if (error) {
     content = html `<div>Error loading people.</div>`;
   } else {

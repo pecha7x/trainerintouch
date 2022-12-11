@@ -2,7 +2,7 @@ module Api
   module V1
     class PeopleController < Api::V1::BaseController
       def index
-        resource_collection = resource_class.all
+        resource_collection = resource_class.order(id: :desc)
         success_response(PersonSerializer.render_as_hash(resource_collection, view: :list))
       end
 

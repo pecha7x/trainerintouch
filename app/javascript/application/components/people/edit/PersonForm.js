@@ -1,5 +1,6 @@
 import { html } from 'htm/react';
 import { Form, Field } from 'react-final-form';
+import Button from '../../Button';
 
 function PersonForm(props) {
   const renderError = ({ error, touched }) => {
@@ -32,9 +33,9 @@ function PersonForm(props) {
       validate=${formValues => {
         const errors = {};
 
-        if (!formValues.name) {
-          errors.name = 'You must enter a name';
-        }
+        // if (!formValues.name) {
+        //   errors.name = 'You must enter a name';
+        // }
 
         return errors;
       }}
@@ -66,7 +67,9 @@ function PersonForm(props) {
               component=${renderInput}
               label='Enter DOB'
             />
-            <button class='ui button primary'>Submit</button>
+            <${Button} loading=${props.isLoading} primary outline rounded>
+              Submit
+            <//>
           </form>
         `}
     />

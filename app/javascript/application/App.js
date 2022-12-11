@@ -1,8 +1,8 @@
 import { html } from 'htm/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/index';
-import PeopleList from './components/people/PeopleList';
-import PersonCreate from './components/people/PersonCreate'; // TODO: mover under modal
+import PeopleList from './components/people/list/PeopleList';
+import PersonCreate from './components/people/edit/PersonCreate'; // TODO: mover under modal
 import PlansList from './components/plans/PlansList';
 import Nutrition from './components/nutrition/index';
 import Marketing from './components/marketing/index';

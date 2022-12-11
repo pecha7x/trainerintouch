@@ -1,7 +1,7 @@
 import { html } from 'htm/react';
 import ReactDOM from 'react-dom';
 
-const Modal = props => {
+function Modal(props) {
   return ReactDOM.createPortal(
     html`
       <div onclick=${props.onDismiss} class="ui dimmer modals visible active">

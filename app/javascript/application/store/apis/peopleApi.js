@@ -31,6 +31,9 @@ const PeopleApi = createApi({
             body: attributes,
           };
         },
+        transformResponse: (response, _meta, _arg) => {
+          return response.payload;
+        }
       }),
       fetchPeople: builder.query({
         providesTags: ['Person'],
