@@ -1,8 +1,9 @@
 import { html } from 'htm/react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { withRouter } from '../../../withRouter';
 import Skeleton from '../../Skeleton';
 import Modal from '../../Modal';
+import Button from '../../Button';
 import { useRemovePersonMutation, useFetchPersonQuery } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 
@@ -32,10 +33,10 @@ function PersonDelete(props) {
     content = html `<div>Error loading person</div>`;
   } else {
     actions = html `
-      <button onClick=${() => onDelete(data)} className='ui button negative'>Delete</button>
-      <${Link} to='/people' className='ui button'>Cancel<//>
+      <${Button} onClick=${() => onDelete(data)} danger>Delete<//>
+      <${Button} onClick=${() => props.navigate('/people')} primary>Cancel<//>
     `;
-    content = html `<div>${data.name}</div>`;
+    content = html `<div>Are you sure about delete ${data.name} ?</div>`;
   };
 
   return html `
