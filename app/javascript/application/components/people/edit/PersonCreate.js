@@ -2,6 +2,8 @@ import { html } from 'htm/react';
 import PersonForm from './PersonForm';
 import { useAddPersonMutation } from '../../../store/index';
 import { withRouter } from '../../../withRouter';
+import { text_notify, api_error_notify } from '../../../toastNotify';
+
 
 function PersonCreate(props) {
   const [addPerson, { isLoading }] = useAddPersonMutation();
@@ -9,9 +11,9 @@ function PersonCreate(props) {
   const onSubmit = async (formValues) => {
     const result = await addPerson(formValues);
     if ('error' in result) {
-      // addToast('Uh oh something bad happened!')
+      api_error_notify(result);
     } else {
-      // addToast('Item deleted')
+      text_notify('Person added', 'success');
       // redirectTo(routes.items.index)
       props.navigate('/people');
     }

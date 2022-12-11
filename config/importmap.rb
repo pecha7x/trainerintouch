@@ -48,3 +48,5 @@ pin "final-form", to: "https://ga.jspm.io/npm:final-form@4.20.7/dist/final-form.
 pin "classnames", to: "https://ga.jspm.io/npm:classnames@2.3.2/index.js"
 pin "react-icons/go", to: "https://ga.jspm.io/npm:react-icons@4.7.1/go/index.esm.js"
 pin "react-icons/lib", to: "https://ga.jspm.io/npm:react-icons@4.7.1/lib/esm/index.js"
+pin "react-toastify", to: "https://ga.jspm.io/npm:react-toastify@9.1.1/dist/react-toastify.esm.mjs"
+pin "clsx", to: "https://ga.jspm.io/npm:clsx@1.2.1/dist/clsx.m.js"

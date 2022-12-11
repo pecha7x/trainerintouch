@@ -1,5 +1,6 @@
 import { html } from 'htm/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Header from './components/header/index';
 import PeopleList from './components/people/list/PeopleList';
 import PersonCreate from './components/people/edit/PersonCreate'; // TODO: mover under modal
@@ -10,6 +11,7 @@ import Marketing from './components/marketing/index';
 function App() {
   return html`
     <${BrowserRouter} basename="/dashboard">
+      <${ToastContainer} position='top-center'/>
       <${Header}/>
       <${Routes}>
         <${Route} path="/" element=${html`<${PeopleList} />`}/>
