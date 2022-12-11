@@ -6,6 +6,11 @@ module Api
         success_response(PersonSerializer.render_as_hash(resource_collection, view: :list))
       end
 
+      def show
+        resource = resource_class.find(params[:id])
+        success_response(PersonSerializer.render_as_hash(resource, view: :show))
+      end
+
       def create
         resource = resource_class.new(permitted_params)
         if resource.save

@@ -16,6 +16,7 @@ setupListeners(store.dispatch);
 
 export {
   useFetchPeopleQuery,
+  useFetchPersonQuery,
   useAddPersonMutation,
   useRemovePersonMutation,
 } from './apis/peopleApi';

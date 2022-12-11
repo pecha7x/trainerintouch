@@ -35,6 +35,18 @@ const PeopleApi = createApi({
           return response.payload;
         }
       }),
+      fetchPerson: builder.query({
+        providesTags: ['Person'],
+        query: (person_id) => {
+          return {
+            url: `/${person_id}`,
+            method: 'GET',
+          };
+        },
+        transformResponse: (response, _meta, _arg) => {
+          return response.payload;
+        }
+      }),
       fetchPeople: builder.query({
         providesTags: ['Person'],
         // providesTags: (result, error, user) => {
@@ -44,12 +56,9 @@ const PeopleApi = createApi({
         //   tags.push({ type: 'People', id: user.id });
         //   return tags;
         // },
-        query: (user) => {
+        query: () => {
           return {
             url: '',
-            params: {
-              userId: user?.id,
-            },
             method: 'GET',
           };
         },
@@ -63,6 +72,7 @@ const PeopleApi = createApi({
 
 export const {
   useFetchPeopleQuery,
+  useFetchPersonQuery,
   useAddPersonMutation,
   useRemovePersonMutation,
 } = PeopleApi;

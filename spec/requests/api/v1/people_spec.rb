@@ -19,6 +19,53 @@ RSpec.describe 'Api::V1::People' do
     end
   end
 
+  describe 'GET /show' do
+    let(:person) { create(:person) }
+    let(:url) { "#{api_v1_people_url}/#{person.id}" }
+
+    before { get url }
+
+    it 'executes success' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'returns a person object' do
+      expect(json['payload']).to be_present
+    end
+
+    it 'returns name attribute' do
+      expect(json['payload']['name']).to eq person.name
+    end
+
+    it 'returns phone attribute' do
+      expect(json['payload']['phone']).to eq person.phone
+    end
+
+    it 'returns email attribute' do
+      expect(json['payload']['email']).to eq person.email
+    end
+
+    it 'returns gender attribute' do
+      expect(json['payload']['gender']).to eq person.gender
+    end
+
+    it 'returns dob attribute' do
+      expect(Date.parse(json['payload']['dob'])).to eq person.dob
+    end
+
+    context 'when a person not present' do
+      let(:url) { "#{api_v1_people_url}/999999" }
+
+      it 'does not execute success' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it 'returns an errors message' do
+        expect(json['errors'][0]).to eq "Couldn't find Person with 'id'=999999"
+      end
+    end
+  end
+
   describe 'POST /create' do
     let(:person_attributes) do
       {
