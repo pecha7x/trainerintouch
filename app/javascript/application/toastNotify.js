@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 // see the props values - https://fkhadra.github.io/react-toastify/introduction/
 const default_config = {
   position:        'top-center',
-  autoClose:       5000,
+  autoClose:       2000,
   hideProgressBar: false,
   closeOnClick:    true,
   pauseOnHover:    true,

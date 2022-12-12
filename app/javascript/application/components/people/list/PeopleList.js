@@ -1,31 +1,50 @@
 import { html } from 'htm/react';
-import { Link } from 'react-router-dom';
 import { useFetchPeopleQuery } from '../../../store/index';
+import Button from '../../Button';
+import { withRouter } from '../../../withRouter';
 import Skeleton from '../../Skeleton';
-import PeopleListItem from './PeopleItem';
+import PeopleItem from './PeopleItem';
 
-function PeopleList() {
+function PeopleList(props) {
   const { data, error, isFetching } = useFetchPeopleQuery();
 
-  let content;
+  let people_list;
   if (isFetching) {
-    content = html `<${Skeleton} className='h-10 w-full' times=${5} />`;
+    people_list = html `<${Skeleton} className='h-10 w-full' times=${5} />`;
   } else if (error) {
-    content = html `<div>Error loading people.</div>`;
+    people_list = html `<div>Error loading people.</div>`;
   } else {
-    content = data.map((person) => {
-      return html`<${PeopleListItem} person=${person}/>`;
+    people_list = data.map((person) => {
+      return html`
+        <${PeopleItem} person=${person}/>
+      `;
     });
   }
 
   return html`
-    <div>
-      <div className='m-2 flex flex-row items-center justify-between'>
-        <${Link} to='/people/new'>+ Add Person<//>
-      </div>
-      <div>${content}</div>
+    <div className='m-2 flex flex-row items-center justify-between'>
+      <${Button} onClick=${() => props.navigate('/people/new')} success>+ Add Person<//>
     </div>
+    <div className="flex flex-col">
+      <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="overflow-hidden">
+            <table className="min-w-full">
+              <thead className="border-b">
+                <tr>
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Name</th>
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Phone</th>
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Status</th>
+                  <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"></th>
+                </tr>
+              </thead>
+              <tbody>${people_list}</tbody>
+            </table>
+          </div>
+        </div>         
+      </div>
+    </div>  
   `;
 }
 
-export default PeopleList;
+export default withRouter(PeopleList);

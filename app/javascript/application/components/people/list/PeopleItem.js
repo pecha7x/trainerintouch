@@ -1,20 +1,29 @@
 import { html } from 'htm/react';
-import { Link } from 'react-router-dom';
+import Button from '../../Button';
+import { withRouter } from '../../../withRouter';
 
-function PeopleListItem({person}) {
+function PeopleItem(props) {
+  const person = props.person;
+
   const renderActions = () => {
-    return html `
-      <div className="right floated content">
-        <${Link} to=${`/people/edit/${person.id}`} className='ui button primary'>Edit<//>
-        <${Link} to=${`/people/delete/${person.id}`} className='ui button negative'>Delete<//>
+    return html`
+      <div className="flex justify-end">
+        <${Button} className='mr-2' onClick=${() => props.navigate(`/people/edit/${person.id}`)} primary>Edit<//>
+        <${Button} className='mr-2' onClick=${() => props.navigate(`/people/delete/${person.id}`)} warning>Delete<//>
       </div>
     `;    
   };
 
-  return html `
-    <div key={person.id}>${person.name}, <b>${person.email}</b>,! ${person.phone}</div>
-    ${renderActions()}
+  return html`
+    <tr key=${person.id} className="bg-white border-b">
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${person.name}</td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">${person.phone}</td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">${person.status}</td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        ${renderActions()}
+      </td>
+    </tr>
   `;
 }
 
-export default PeopleListItem;
+export default withRouter(PeopleItem);
