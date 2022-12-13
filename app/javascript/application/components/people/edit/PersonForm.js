@@ -1,6 +1,7 @@
 import { html } from 'htm/react';
 import { Form, Field } from 'react-final-form';
 import Button from '../../Button';
+import { withRouter } from '../../../withRouter';
 
 function PersonForm(props) {
   const renderError = ({ error, touched }) => {
@@ -46,43 +47,41 @@ function PersonForm(props) {
       }}
       render=${({ handleSubmit }) =>
         html`
-          <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-
-            <form onSubmit=${handleSubmit}>
-              <${Field}
-                name='name'
-                component=${renderInput}
-                label='Enter Name'
-              />
-              <${Field}
-                name='phone'
-                component=${renderInput}
-                label='Enter Phone'
-              />
-              <${Field}
-                name='email'
-                component=${renderInput}
-                label='Enter Email'
-              />
-              <${Field}
-                name='gender'
-                component=${renderInput}
-                label='Enter Gender'
-              />
-              <${Field}
-                name='dob'
-                component=${renderInput}
-                label='Enter DOB'
-              />
-              <${Button} loading=${props.isLoading} primary outline>
-                Submit
-              <//>
-            </form>
-
-          </div>  
-        `}
+          <form onSubmit=${handleSubmit}>
+            <${Field}
+              name='name'
+              component=${renderInput}
+              label='Person Name'
+            />
+            <${Field}
+              name='phone'
+              component=${renderInput}
+              label='Phone Number'
+            />
+            <${Field}
+              name='email'
+              component=${renderInput}
+              label='Email Address'
+            />
+            <${Field}
+              name='gender'
+              component=${renderInput}
+              label='Person Gender'
+            />
+            <${Field}
+              name='dob'
+              component=${renderInput}
+              label='Day of Birthday'
+            />
+            <div className="flex justify-between mb-2">
+              <${Button} type='button' onClick=${() => props.navigate('/people')} danger outline>Cancel<//>
+              <${Button} type='submit' loading=${props.isLoading} primary>Submit<//>
+            </div>
+          </form>
+        `
+      }
     />
   `;
 };
 
-export default PersonForm;
+export default withRouter(PersonForm);

@@ -15,6 +15,10 @@ function Modal(props) {
                aria-modal="true"
                aria-labelledby="modal-headline">
 
+            <div class="flex items-center justify-center pt-3 text-gray-700">
+              ${props.title}
+            </div>
+
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               ${props.content}
             </div>

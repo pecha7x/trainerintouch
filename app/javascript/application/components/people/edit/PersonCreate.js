@@ -2,6 +2,7 @@ import { html } from 'htm/react';
 import PersonForm from './PersonForm';
 import { useAddPersonMutation } from '../../../store/index';
 import { withRouter } from '../../../withRouter';
+import Modal from '../../Modal';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 
 
@@ -19,11 +20,14 @@ function PersonCreate(props) {
     }
   };
 
-  return html`
-    <div>
-      <h3 className='text-gray-700'>Create a Person</h3>
-      <${PersonForm} isLoading=${isLoading} onSubmit=${onSubmit} />
-    </div>
+  const content = html `<${PersonForm} isLoading=${isLoading} onSubmit=${onSubmit} />`;
+
+  return html `
+    <${Modal}
+      title='Create a Person'
+      content=${content}
+      onDismiss=${() => props.navigate('/people')}
+    />
   `;
 };
 
