@@ -23,7 +23,7 @@ function PeopleList(props) {
 
   return html`
     <div className='m-2 flex flex-row items-center justify-between'>
-      <${Button} onClick=${() => props.navigate('/people/new')} success>+ Add Person<//>
+      <${Button} onClick=${() => props.navigate('/people/new')} success outline>+ Add Person<//>
     </div>
     <div className="flex flex-col">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

@@ -21,7 +21,7 @@ function PersonCreate(props) {
 
   return html`
     <div>
-      <h3>Create a Person</h3>
+      <h3 className='text-gray-700'>Create a Person</h3>
       <${PersonForm} isLoading=${isLoading} onSubmit=${onSubmit} />
     </div>
   `;

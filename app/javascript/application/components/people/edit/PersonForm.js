@@ -12,11 +12,16 @@ function PersonForm(props) {
   };
 
   const renderInput = ({ input, label, meta }) => {
-    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
+    const className = `form-group mb-6 ${meta.error && meta.touched ? 'error' : ''}`;
     return html`
-      <div class=${className}>
-        <label>${label}</label>
-        <input ...${input} autocomplete="off" />
+      <div className=${className}>
+        <label className='form-label inline-block mb-2 text-gray-700'>${label}</label>
+        <input className='form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' ...${input} autocomplete='off' />
         ${renderError(meta)}
       </div>
     `;
@@ -41,36 +46,40 @@ function PersonForm(props) {
       }}
       render=${({ handleSubmit }) =>
         html`
-          <form onSubmit=${handleSubmit} class='ui form error'>
-            <${Field}
-              name='name'
-              component=${renderInput}
-              label='Enter Name'
-            />
-            <${Field}
-              name='phone'
-              component=${renderInput}
-              label='Enter Phone'
-            />
-            <${Field}
-              name='email'
-              component=${renderInput}
-              label='Enter Email'
-            />
-            <${Field}
-              name='gender'
-              component=${renderInput}
-              label='Enter Gender'
-            />
-            <${Field}
-              name='dob'
-              component=${renderInput}
-              label='Enter DOB'
-            />
-            <${Button} loading=${props.isLoading} primary outline rounded>
-              Submit
-            <//>
-          </form>
+          <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+
+            <form onSubmit=${handleSubmit}>
+              <${Field}
+                name='name'
+                component=${renderInput}
+                label='Enter Name'
+              />
+              <${Field}
+                name='phone'
+                component=${renderInput}
+                label='Enter Phone'
+              />
+              <${Field}
+                name='email'
+                component=${renderInput}
+                label='Enter Email'
+              />
+              <${Field}
+                name='gender'
+                component=${renderInput}
+                label='Enter Gender'
+              />
+              <${Field}
+                name='dob'
+                component=${renderInput}
+                label='Enter DOB'
+              />
+              <${Button} loading=${props.isLoading} primary outline>
+                Submit
+              <//>
+            </form>
+
+          </div>  
         `}
     />
   `;

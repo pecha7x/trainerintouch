@@ -8,8 +8,8 @@ function PeopleItem(props) {
   const renderActions = () => {
     return html`
       <div className="flex justify-end">
-        <${Button} className='mr-2' onClick=${() => props.navigate(`/people/edit/${person.id}`)} primary>Edit<//>
-        <${Button} className='mr-2' onClick=${() => props.navigate(`/people/delete/${person.id}`)} warning>Delete<//>
+        <${Button} className='mr-2' onClick=${() => props.navigate(`/people/edit/${person.id}`)} primary outline>Edit<//>
+        <${Button} className='mr-2' onClick=${() => props.navigate(`/people/delete/${person.id}`)} danger outline>Delete<//>
       </div>
     `;    
   };

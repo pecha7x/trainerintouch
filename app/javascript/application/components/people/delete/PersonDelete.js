@@ -33,8 +33,8 @@ function PersonDelete(props) {
     content = html `<div>Error loading person</div>`;
   } else {
     actions = html `
-      <${Button} onClick=${() => onDelete(data)} danger>Delete<//>
-      <${Button} onClick=${() => props.navigate('/people')} primary>Cancel<//>
+      <${Button} onClick=${() => onDelete(data)} danger outline>Delete<//>
+      <${Button} onClick=${() => props.navigate('/people')} primary outline>Cancel<//>
     `;
     content = html `<div>Are you sure about delete ${data.name} ?</div>`;
   };
