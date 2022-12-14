@@ -32,8 +32,11 @@ function text_notify(message, type = '', options = {}) {
 
 function api_error_notify(result, options = {}) {
   const notify_options = {...default_config, ...options};
-  const message = html `${result.error.data.errors.join('<br/>')}`;
+  if (result.error.status === 'PARSING_ERROR') {
+    return toast.error('An unexpected error occurred', notify_options);
+  }
   
+  const message = html `${result.error.data.errors.join('<br/>')}`;
   return toast.error(message, notify_options);
 };
 

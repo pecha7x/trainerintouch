@@ -75,7 +75,7 @@ function PersonForm(props) {
             />
             <div className="flex justify-between mb-2">
               <${Button} type='button' onClick=${() => props.navigate('/people')} danger outline>Cancel<//>
-              <${Button} type='submit' loading=${props.isLoading} primary>Submit<//>
+              <${Button} type='submit' loading=${props.isLoading} primary>Save<//>
             </div>
           </form>
         `

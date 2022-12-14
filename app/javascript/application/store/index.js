@@ -18,5 +18,6 @@ export {
   useFetchPeopleQuery,
   useFetchPersonQuery,
   useAddPersonMutation,
+  useUpdatePersonMutation,
   useRemovePersonMutation,
 } from './apis/peopleApi';

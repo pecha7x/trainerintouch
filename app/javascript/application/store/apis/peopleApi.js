@@ -35,6 +35,22 @@ const PeopleApi = createApi({
           return response.payload;
         }
       }),
+      updatePerson: builder.mutation({
+        invalidatesTags: ['Person'],
+        // invalidatesTags: (result, error, user) => {
+        //   return [{ type: 'People', id: user.id }];
+        // },
+        query: (attributes) => {
+          return {
+            url: `/${attributes.id}`,
+            method: 'PUT',
+            body: attributes,
+          };
+        },
+        transformResponse: (response, _meta, _arg) => {
+          return response.payload;
+        }
+      }),
       fetchPerson: builder.query({
         providesTags: ['Person'],
         query: (person_id) => {
@@ -74,6 +90,7 @@ export const {
   useFetchPeopleQuery,
   useFetchPersonQuery,
   useAddPersonMutation,
+  useUpdatePersonMutation,
   useRemovePersonMutation,
 } = PeopleApi;
 
