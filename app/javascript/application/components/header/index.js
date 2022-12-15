@@ -48,7 +48,7 @@ function Header() {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-20">
           <img src="images/logo.svg" alt="" />
-          <div className="hidden space-x-8 font-bold lg:flex">
+          <div className="nav-list hidden space-x-8 font-bold lg:flex">
             <${navList} linkClassName="text-grayishViolet hover:text-veryDarkViolet"/>
           </div>
         </div>
