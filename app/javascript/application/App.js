@@ -1,5 +1,5 @@
 import { html } from 'htm/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Header from './components/header/index';
 import PeopleList from './components/people/list/PeopleList';
@@ -24,6 +24,7 @@ function App() {
         <${Route} path="/plans" element=${html`<${PlansList} />`}/>
         <${Route} path="/nutrition" element=${html`<${Nutrition} />`}/>
         <${Route} path="/marketing" element=${html`<${Marketing} />`}/>
+        <${Route} path="*" element=${html`<${Navigate} to="/" replace />`}/>
       <//>
     <//>
   `;  

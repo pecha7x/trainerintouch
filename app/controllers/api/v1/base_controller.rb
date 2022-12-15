@@ -22,7 +22,7 @@ module Api
 
       def dev_env_delay
         # just to see a properly behavior for load the data from server
-        sleep 1
+        sleep 0.3
       end
 
       def authenticate!
