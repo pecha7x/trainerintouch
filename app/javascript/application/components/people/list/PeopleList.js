@@ -2,7 +2,7 @@ import { html } from 'htm/react';
 import { useFetchPeopleQuery } from '../../../store/index';
 import Button from '../../Button';
 import { withRouter } from '../../../withRouter';
-import Skeleton from '../../Skeleton';
+import emptyTableRow from '../../skeletons/emptyTableRow';
 import PeopleItem from './PeopleItem';
 
 function PeopleList(props) {
@@ -10,7 +10,7 @@ function PeopleList(props) {
 
   let people_list;
   if (isFetching) {
-    people_list = html `<${Skeleton} className='h-10 w-full' times=${5} />`;
+    people_list = html `<${emptyTableRow} times=${5} columns_count=${4} />`;
   } else if (error) {
     people_list = html `<div>Error loading people.</div>`;
   } else {

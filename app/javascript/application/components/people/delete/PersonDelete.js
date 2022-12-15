@@ -1,7 +1,7 @@
 import { html } from 'htm/react';
 import { useParams } from 'react-router-dom';
 import { withRouter } from '../../../withRouter';
-import Skeleton from '../../Skeleton';
+import emptyDiv from '../../skeletons/emptyDiv';
 import Modal from '../../Modal';
 import Button from '../../Button';
 import { useRemovePersonMutation, useFetchPersonQuery } from '../../../store/index';
@@ -28,13 +28,13 @@ function PersonDelete(props) {
   let content;
 
   if (isFetching) {
-    content = html `<${Skeleton} className='h-10 w-full' times=${1} />`;
+    content = html `<${emptyDiv} className='h-8 w-full' times=${2} />`;
   } else if (error) {
     content = html `<div>Error loading person</div>`;
   } else {
     actions = html `
-      <${Button} onClick=${() => onDelete(data)} danger outline>Delete<//>
       <${Button} onClick=${() => props.navigate('/people')} primary outline>Cancel<//>
+      <${Button} onClick=${() => onDelete(data)} danger>Delete<//>
     `;
     content = html `<div>Are you sure about delete ${data.name} ?</div>`;
   };

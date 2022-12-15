@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import PersonForm from './PersonForm';
 import { useUpdatePersonMutation, useFetchPersonQuery } from '../../../store/index';
 import { withRouter } from '../../../withRouter';
-import Skeleton from '../../Skeleton';
+import emptyDiv from '../../skeletons/emptyDiv';
 import Modal from '../../Modal';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 
@@ -26,7 +26,7 @@ function PersonEdit(props) {
 
   let content;
   if (isFetching) {
-    content = html `<${Skeleton} className='h-10 w-full' times=${1} />`;
+    content = html `<${emptyDiv} className='h-16 w-full' times=${7} />`;
   } else if (error) {
     content = html `<div>Error loading person</div>`;
   } else {

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-group .text-input {
+  @apply 
+    block w-full px-3 py-1.5 m-0
+    text-base font-normal text-gray-700
+    bg-white bg-clip-padding border border-solid border-gray-300
+    rounded transition ease-in-out
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+  ;
+}
+
+.form-group .text-input-label {
+  @apply 
+    inline-block mb-2 text-gray-700
+  ;
+}
+
+tr.empty-table-row {
+  @apply 
+    bg-gray-200 border-b border-white
+  ;
+}
+
+tr.empty-table-row td.empty-table-column {
+  @apply 
+    px-6 py-8 whitespace-nowrap
+  ;
+}

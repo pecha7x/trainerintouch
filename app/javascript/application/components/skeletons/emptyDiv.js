@@ -1,7 +1,7 @@
 import { html } from 'htm/react';
 import classNames from 'classnames';
 
-function Skeleton({ times, className }) {
+function emptyDiv({ times, className }) {
   const outerClassNames = classNames(
     'relative',
     'overflow-hidden',
@@ -24,7 +24,7 @@ function Skeleton({ times, className }) {
   const boxes = Array(times)
     .fill(0)
     .map((_, i) => {
-      return html`
+      return html `
         <div key=${i} className=${outerClassNames}>
           <div className=${innerClassNames} />
         </div>
@@ -34,4 +34,4 @@ function Skeleton({ times, className }) {
   return boxes;
 }
 
-export default Skeleton;
+export default emptyDiv;
