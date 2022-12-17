@@ -1,12 +1,14 @@
 import { html } from 'htm/react';
+import { useNavigate } from 'react-router-dom';
+
 import PersonForm from './PersonForm';
-import { useAddPersonMutation } from '../../../store/index';
-import { withRouter } from '../../../withRouter';
 import Modal from '../../Modal';
+import { useAddPersonMutation } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 
 
-function PersonCreate(props) {
+function PersonCreate() {
+  const navigate = useNavigate();
   const [addPerson, { isLoading }] = useAddPersonMutation();
 
   const onSubmit = async (formValues) => {
@@ -16,7 +18,7 @@ function PersonCreate(props) {
     } else {
       text_notify('Person added', 'success');
       // redirectTo(routes.items.index)
-      props.navigate('/people');
+      navigate('/people');
     }
   };
 
@@ -26,9 +28,9 @@ function PersonCreate(props) {
     <${Modal}
       title='Create a Person'
       content=${content}
-      onDismiss=${() => props.navigate('/people')}
+      onDismiss=${() => navigate('/people')}
     />
   `;
 };
 
-export default withRouter(PersonCreate);
+export default PersonCreate;

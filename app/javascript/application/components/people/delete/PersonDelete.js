@@ -1,13 +1,14 @@
 import { html } from 'htm/react';
-import { useParams } from 'react-router-dom';
-import { withRouter } from '../../../withRouter';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import emptyDiv from '../../skeletons/emptyDiv';
 import Modal from '../../Modal';
 import Button from '../../Button';
 import { useRemovePersonMutation, useFetchPersonQuery } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 
-function PersonDelete(props) {
+function PersonDelete() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { data, error, isFetching } = useFetchPersonQuery(id);
   const [removePerson, results] = useRemovePersonMutation();
@@ -19,7 +20,7 @@ function PersonDelete(props) {
     } else {
       text_notify(`Person ${person.name} deleted`, 'success');
       // redirectTo(routes.items.index)
-      props.navigate('/people');
+      navigate('/people');
     }
   };
 
@@ -33,7 +34,7 @@ function PersonDelete(props) {
     content = html `<div>Error loading person</div>`;
   } else {
     actions = html `
-      <${Button} onClick=${() => props.navigate('/people')} primary outline>Cancel<//>
+      <${Button} onClick=${() => navigate('/people')} primary outline>Cancel<//>
       <${Button} onClick=${() => onDelete(data)} danger>Delete<//>
     `;
     content = html `<div>Are you sure about delete ${data.name} ?</div>`;
@@ -44,9 +45,9 @@ function PersonDelete(props) {
       title='Delete Person'
       content=${content}
       actions=${actions}
-      onDismiss=${() => props.navigate('/people')}
+      onDismiss=${() => navigate('/people')}
     />
   `;
 }
 
-export default withRouter(PersonDelete);;
+export default PersonDelete;

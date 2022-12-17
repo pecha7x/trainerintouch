@@ -1,14 +1,15 @@
 import { html } from 'htm/react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import PersonForm from './PersonForm';
-import { useUpdatePersonMutation, useFetchPersonQuery } from '../../../store/index';
-import { withRouter } from '../../../withRouter';
 import emptyDiv from '../../skeletons/emptyDiv';
 import Modal from '../../Modal';
+import { useUpdatePersonMutation, useFetchPersonQuery } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 
 
-function PersonEdit(props) {
+function PersonEdit() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { data, error, isFetching } = useFetchPersonQuery(id);
   const [updatePerson, { isLoading }] = useUpdatePersonMutation();
@@ -20,7 +21,7 @@ function PersonEdit(props) {
     } else {
       text_notify('Person updated', 'success');
       // redirectTo(routes.items.index)
-      props.navigate('/people');
+      navigate('/people');
     }
   };
 
@@ -43,9 +44,9 @@ function PersonEdit(props) {
     <${Modal}
       title='Edit Person'
       content=${content}
-      onDismiss=${() => props.navigate('/people')}
+      onDismiss=${() => navigate('/people')}
     />
   `;
 };
 
-export default withRouter(PersonEdit);
+export default PersonEdit;

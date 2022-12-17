@@ -1,11 +1,13 @@
 import { html } from 'htm/react';
+import { useNavigate } from 'react-router-dom';
+
 import { useFetchPeopleQuery } from '../../../store/index';
 import Button from '../../Button';
-import { withRouter } from '../../../withRouter';
 import emptyTableRow from '../../skeletons/emptyTableRow';
 import PeopleItem from './PeopleItem';
 
-function PeopleList(props) {
+function PeopleList() {
+  const navigate = useNavigate();
   const { data, error, isFetching } = useFetchPeopleQuery();
 
   let people_list;
@@ -23,7 +25,7 @@ function PeopleList(props) {
 
   return html`
     <div className='m-2 flex flex-row items-center justify-between'>
-      <${Button} onClick=${() => props.navigate('/people/new')} success>+ Add Person<//>
+      <${Button} onClick=${() => navigate('/people/new')} success>+ Add Person<//>
     </div>
     <div className="flex flex-col">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -47,4 +49,4 @@ function PeopleList(props) {
   `;
 }
 
-export default withRouter(PeopleList);
+export default PeopleList;

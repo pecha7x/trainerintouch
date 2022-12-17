@@ -1,9 +1,12 @@
 import { html } from 'htm/react';
 import { Form, Field } from 'react-final-form';
+import { useNavigate } from 'react-router-dom';
+
 import Button from '../../Button';
-import { withRouter } from '../../../withRouter';
 
 function PersonForm(props) {
+  const navigate = useNavigate();
+
   const renderError = ({ error, touched }) => {
     if (touched && error) {
       return html`
@@ -69,7 +72,7 @@ function PersonForm(props) {
               label='Day of Birthday'
             />
             <div className="flex justify-between mb-2">
-              <${Button} type='button' onClick=${() => props.navigate('/people')} danger outline>Cancel<//>
+              <${Button} type='button' onClick=${() => navigate('/people')} danger outline>Cancel<//>
               <${Button} type='submit' loading=${props.isLoading} primary>Save<//>
             </div>
           </form>
@@ -79,4 +82,4 @@ function PersonForm(props) {
   `;
 };
 
-export default withRouter(PersonForm);
+export default PersonForm;
