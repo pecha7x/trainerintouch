@@ -16,7 +16,7 @@ function PeopleList(props) {
   } else {
     people_list = data.map((person) => {
       return html`
-        <${PeopleItem} person=${person}/>
+        <${PeopleItem} person_id=${person.id} name=${person.name} phone=${person.phone} status=${person.status}/>
       `;
     });
   }

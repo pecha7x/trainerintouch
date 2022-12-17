@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Header from './components/header/index';
 import PeopleList from './components/people/list/PeopleList';
-import PersonCreate from './components/people/edit/PersonCreate'; // TODO: mover under modal
-import PersonEdit from './components/people/edit/PersonEdit'; // TODO: mover under modal
-import PersonDelete from './components/people/delete/PersonDelete'; // TODO: mover under modal
+import PersonCreate from './components/people/edit/PersonCreate';
+import PersonEdit from './components/people/edit/PersonEdit';
+import PersonDelete from './components/people/delete/PersonDelete';
 import PlansList from './components/plans/PlansList';
 import Nutrition from './components/nutrition/index';
 import Marketing from './components/marketing/index';
