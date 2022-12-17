@@ -49,11 +49,11 @@ function Header() {
         <div className="flex items-center space-x-20">
           <img src="images/logo.svg" alt="" />
           <div className="nav-list hidden space-x-8 font-bold lg:flex">
-            <${navList} linkClassName="text-grayishViolet hover:text-veryDarkViolet"/>
+            <${navList} linkClassName="text-gray-300 hover:text-gray-700"/>
           </div>
         </div>
-        <div className="hidden items-center space-x-6 font-bold text-grayishViolet lg:flex">
-          <a href="#" onClick=${(e) => logout(e)} className="hover:text-veryDarkViolet">Logout</div>
+        <div className="hidden items-center space-x-6 font-bold text-gray-300 lg:flex">
+          <a href="#" onClick=${(e) => logout(e)} className="hover:text-gray-700">Logout</div>
         </div>
         <button ref=${ref} onClick=${(e) => navToggle(e)} className=${mobileMenuButtonClass+" block hamburger lg:hidden focus:outline-none"} type="button">
           <span className="hamburger-top"/>
