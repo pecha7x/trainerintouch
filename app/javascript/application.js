@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './application/App';
 import { store } from './application/store/index';
 
-const el = document.getElementById('root');
+const el = document.getElementById('dashboard-app');
 const root = createRoot(el);
 
 root.render(
