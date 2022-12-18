@@ -16,9 +16,9 @@ feature 'Authentication' do
     end
 
     context 'Sign In process' do
-      let(:user)       { create(:user, email: email, password: password) }
-      let(:email)      { 'john@doe.com' }
-      let(:password)   { 'password7X!' }
+      let!(:user)    { create(:user, email: email, password: password) }
+      let(:email)    { 'john@doe.com' }
+      let(:password) { 'password7X!' }
 
       background { visit new_user_session_path }
   
