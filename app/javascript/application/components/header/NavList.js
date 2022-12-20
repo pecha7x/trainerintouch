@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavList({linkClassName}) {
   return html`
+    <${NavLink} to="/" className=${linkClassName}>Dashboard<//>
     <${NavLink} to="/people" className=${linkClassName}>People<//>
     <${NavLink} to="/plans" className=${linkClassName}>Plans<//>
     <${NavLink} to="/nutrition" className=${linkClassName}>Nutrition<//>

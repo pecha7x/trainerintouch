@@ -2,6 +2,7 @@ import { html } from 'htm/react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Header from './components/header/index';
+import Dashboard from './components/dashboard/Dashboard';
 import PeopleList from './components/people/list/PeopleList';
 import PersonCreate from './components/people/edit/PersonCreate';
 import PersonEdit from './components/people/edit/PersonEdit';
@@ -16,7 +17,7 @@ function App() {
       <${ToastContainer} position='top-center'/>
       <${Header}/>
       <${Routes}>
-        <${Route} path="/" element=${html`<${PeopleList} />`}/>
+        <${Route} path="/" element=${html`<${Dashboard} />`}/>
         <${Route} path="/people" element=${html`<${PeopleList} />`}/>
         <${Route} path="/people/new" element=${html`<${PersonCreate} />`}/>
         <${Route} path="/people/edit/:id" element=${html`<${PersonEdit} />`}/>
