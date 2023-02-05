@@ -2,7 +2,7 @@ import { html } from 'htm/react';
 import { useNavigate } from 'react-router-dom';
 
 import PersonForm from './PersonForm';
-import Modal from '../../Modal';
+import Modal from '../../shared/Modal';
 import { useAddPersonMutation } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 

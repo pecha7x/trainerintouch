@@ -1,7 +1,7 @@
 import { html } from 'htm/react';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../../Button';
+import Button from '../../shared/Button';
 
 function PeopleItem({ person_id, name, phone, status }) {
   const navigate = useNavigate();

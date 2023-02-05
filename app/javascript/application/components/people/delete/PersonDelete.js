@@ -1,9 +1,9 @@
 import { html } from 'htm/react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import emptyDiv from '../../skeletons/emptyDiv';
-import Modal from '../../Modal';
-import Button from '../../Button';
+import emptyDiv from '../../shared/skeletons/emptyDiv';
+import Modal from '../../shared/Modal';
+import Button from '../../shared/Button';
 import { useRemovePersonMutation, useFetchPersonQuery } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 

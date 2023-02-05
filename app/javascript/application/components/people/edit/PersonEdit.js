@@ -2,8 +2,8 @@ import { html } from 'htm/react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import PersonForm from './PersonForm';
-import emptyDiv from '../../skeletons/emptyDiv';
-import Modal from '../../Modal';
+import emptyDiv from '../../shared/skeletons/emptyDiv';
+import Modal from '../../shared/Modal';
 import { useUpdatePersonMutation, useFetchPersonQuery } from '../../../store/index';
 import { text_notify, api_error_notify } from '../../../toastNotify';
 

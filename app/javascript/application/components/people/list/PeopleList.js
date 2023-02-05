@@ -2,8 +2,8 @@ import { html } from 'htm/react';
 import { useNavigate } from 'react-router-dom';
 
 import { useFetchPeopleQuery } from '../../../store/index';
-import Button from '../../Button';
-import emptyTableRow from '../../skeletons/emptyTableRow';
+import Button from '../../shared/Button';
+import emptyTableRow from '../../shared/skeletons/emptyTableRow';
 import PeopleItem from './PeopleItem';
 
 function PeopleList() {

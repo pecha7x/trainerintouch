@@ -2,7 +2,7 @@ import { html } from 'htm/react';
 import { Form, Field } from 'react-final-form';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../../Button';
+import Button from '../../shared/Button';
 
 function PersonForm(props) {
   const navigate = useNavigate();
