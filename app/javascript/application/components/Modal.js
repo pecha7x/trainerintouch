@@ -6,15 +6,16 @@ function Modal(props) {
     html`
       <div className="fixed z-10 overflow-y-auto top-0 w-full left-0">
         <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <div onclick=${props.onDismiss} className="fixed inset-0 transition-opacity">
+          <div onClick=${props.onDismiss} className="fixed inset-0 transition-opacity">
             <div className="absolute inset-0 bg-gray-900 opacity-75" />
           </div>          
-          <div onclick=${e => e.stopPropagation()}
-               className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-10 sm:align-middle sm:max-w-lg sm:w-full"
-               role="dialog"
-               aria-modal="true"
-               aria-labelledby="modal-headline">
-
+          <div
+            onClick=${e => e.stopPropagation()}
+            className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-10 sm:align-middle sm:max-w-lg sm:w-full"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-headline"
+          >
             <div class="flex items-center justify-center pt-3 text-gray-700">
               ${props.title}
             </div>
